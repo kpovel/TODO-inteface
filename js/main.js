@@ -1,9 +1,9 @@
-const addHighTask = document.getElementById('addHighTask')
-const addLowTask = document.getElementById('addLowTask')
-const template = document.getElementById('template')
+import {addHighTask, addedHighTask, inputHigh, addLowTask, addedLowTask, inputLow, template} from "./view.js";
 
-addHighTask.addEventListener('click', addTaskHigh)
-addLowTask.addEventListener('click', addTaskLow)
+addHighTask.addEventListener('click', addTask)
+addLowTask.addEventListener('click', addTask)
+inputHigh.addEventListener('keydown', addEnter)
+inputLow.addEventListener('keydown', addEnter)
 
 function closeElem() {
     let tasksToDelete = document.querySelectorAll('.close-icon')
@@ -14,32 +14,46 @@ function closeElem() {
 
 closeElem()
 
+let value
+function addTask() {
+    let priority
+    if (!value) {
+        priority = this.parentNode.parentNode.id
+    }
 
-function addTaskHigh() {
+    if (priority === 'high' || value === 'high') {
+        let task = inputHigh.value
+        if (!task.trim()) return
 
-    let task = inputHigh.value
-    if (!task.trim()) return
+        let clone = template.content.cloneNode(true)
+        clone.querySelector('.task-name').textContent = task
 
-    let clone = template.content.cloneNode(true)
-    clone.querySelector('.task-name').textContent = task
+        addedHighTask.prepend(clone)
+        inputHigh.value = null
+    } else if (priority === 'low' || value === 'low') {
+        let task = inputLow.value
+        if (!task.trim()) return
 
-    addedHighTask.prepend(clone)
-    inputHigh.value = null
+        let clone = template.content.cloneNode(true)
+        clone.querySelector('.task-name').textContent = task
 
+        addedLowTask.prepend(clone)
+        inputLow.value = null
+    }
     closeElem()
 }
 
-function addTaskLow() {
-    let task = inputLow.value
-    if (!task.trim()) return
+function addEnter(e) {
+    const priority = this.parentNode.parentNode.id
+    if (e.code !== 'Enter') return
 
-    let clone = template.content.cloneNode(true)
-    clone.querySelector('.task-name').textContent = task
-
-    addedLowTask.prepend(clone)
-    inputLow.value = null
-
-    closeElem()
+    if (priority === 'high') {
+        value = 'high'
+        addTask()
+    } else if (priority === 'low') {
+        value = 'low'
+        addTask()
+    }
 }
 
 

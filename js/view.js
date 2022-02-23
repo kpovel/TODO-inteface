@@ -1,4 +1,7 @@
-// export const  taskToDelete = document.querySelectorAll('.new-task')
-export const SELECTOR = {
-
-}
+export const addHighTask = document.getElementById('addHighTask')
+export const addedHighTask = document.getElementById('addedHighTask')
+export const inputHigh = document.getElementById('inputHigh')
+export const addLowTask = document.getElementById('addLowTask')
+export const addedLowTask = document.getElementById('addedLowTask')
+export const inputLow = document.getElementById('inputLow')
+export const template = document.getElementById('template')
