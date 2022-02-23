@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="todo">
+    <div class="priority">
+
+        <div id="high" class="high-priority">
+            <div class="text">HIGH</div>
+            <div class="add-task">
+
+                <form onsubmit="addTaskHigh();return false">
+                    <input id="inputHigh" class="input text" type="text" placeholder="Добавить важных дел"
+                           autocomplete="off">
+                </form>
+                <div id="addHighTask" class="add-icon"></div>
+
+            </div>
+
+            <div id="addedHighTask" class="tasks">
+                <div class="border">
+                    <div class="checkbox"></div>
+                    <div class="task-name">Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом
+                        становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной
+                        программы.
+                    </div>
+                    <div class="close-icon"></div>
+                </div>
+                <div class="border">
+                    <div class="checkbox"></div>
+                    <div class="task-name">Сверстать этот TODO list</div>
+                    <div class="close-icon"></div>
+                </div>
+                <div class="border">
+                    <div class="checkbox"></div>
+                    <div class="task-name">Начать делать задачу</div>
+                    <div class="close-icon"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <template id="template">
+            <div class="border">
+                <div class="checkbox"></div>
+                <div class="task-name"></div>
+                <div class="close-icon"></div>
+            </div>
+        </template>
+
+
+        <div id="low" class="low-priority">
+            <div class="text">LOW</div>
+            <div class="add-task">
+
+                <form onsubmit="addTaskLow();return false">
+                    <input id="inputLow" class="input text" type="text" placeholder="Добавить" autocomplete="off">
+                </form>
+                <div id="addLowTask" class="add-icon"></div>
+
+            </div>
+
+            <div id="addedLowTask" class="tasks">
+                <div class="border">
+                    <label>
+                        <input type="checkbox" class="checkbox">
+                    </label>
+                    <div class="task-name">Не посмотреть ютубчик</div>
+                    <div class="close-icon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
