@@ -72,6 +72,29 @@ body {
     margin: 12px;
 }
 
+//.checkbox {
+//    visibility: hidden;
+//    margin-right: 20px;
+//    margin-top: 0;
+//    position: relative;
+//    top: 12px;
+//    left: 12px;
+//}
+//
+//.checkbox::before {
+//    visibility: visible;
+//    content: "";
+//    display: inline-block;
+//    width: 21px;
+//    height: 21px;
+//    margin-right: 12px;
+//    margin-top: 1px;
+//    background-image: url("../svg/notChecked.svg");
+//    background-repeat: no-repeat;
+//    background-position: center center;
+//    cursor: pointer;
+//}
+
 .task-name {
     font-family: Roboto, sans-serif;
     font-size: 18px;
@@ -90,6 +113,7 @@ body {
     position: relative;
     right: -17px;
     top: 14px;
+    cursor: pointer;
 }
 
 .add-icon {
@@ -99,5 +123,5 @@ body {
     width: 17px;
     position: relative;
     right: 6px;
-
+    cursor: pointer;
 }

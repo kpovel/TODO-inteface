@@ -5,16 +5,31 @@ addLowTask.addEventListener('click', addTask)
 inputHigh.addEventListener('keydown', addEnter)
 inputLow.addEventListener('keydown', addEnter)
 
-function closeElem() {
+function addCloseElem() {
     let tasksToDelete = document.querySelectorAll('.close-icon')
     for (let task of tasksToDelete) {
         task.addEventListener('click', deleteTask)
     }
 }
 
-closeElem()
+addCloseElem()
 
+
+function checkStatusTask() {
+    let task = document.querySelectorAll('.checkbox')
+    for (let taskElement of task) {
+        taskElement.addEventListener('click', function () {
+            if (this.checked){
+                this.parentElement.style.background = '#F4F4F4'
+            }else if (!this.checked){
+                this.parentElement.style.background = '#fff'
+            }
+        })
+    }
+}
+checkStatusTask()
 let value
+
 function addTask() {
     let priority
     if (!value) {
@@ -40,7 +55,8 @@ function addTask() {
         addedLowTask.prepend(clone)
         inputLow.value = null
     }
-    closeElem()
+    addCloseElem()
+    checkStatusTask()
 }
 
 function addEnter(e) {
