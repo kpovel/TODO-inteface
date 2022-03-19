@@ -21,7 +21,6 @@ body {
 .text {
   font-family: Roboto, sans-serif;
   font-size: 18px;
-  line-height: 21px;
 }
 
 .input {
@@ -64,8 +63,6 @@ body {
 .checkbox {
   width: 21px;
   height: 21px;
-  border: 1px solid #998899;
-  border-radius: 50%;
   visibility: hidden;
   margin-right: 20px;
   margin-top: 0;
@@ -105,8 +102,8 @@ body {
 .close-icon {
   background-image: url("../svg/close-icon.svg");
   background-size: 15px 15px;
-  height: 15px;
   width: 15px;
+  background-repeat: no-repeat;
   position: relative;
   right: -17px;
   top: 14px;
@@ -121,6 +118,7 @@ body {
   position: relative;
   right: 6px;
   cursor: pointer;
+  background-repeat: no-repeat;
 }
 
 /*# sourceMappingURL=style.css.map */
