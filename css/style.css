@@ -66,10 +66,6 @@ body {
   height: 21px;
   border: 1px solid #998899;
   border-radius: 50%;
-  margin: 12px;
-}
-
-.checkbox {
   visibility: hidden;
   margin-right: 20px;
   margin-top: 0;

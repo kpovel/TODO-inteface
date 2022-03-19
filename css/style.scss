@@ -7,7 +7,6 @@ body {
 .todo {
     width: 476px;
     min-height: 688px;
-    //border: 1px solid gray;
     background-color: #fff;
     margin: 0 auto;
     display: flex;
@@ -64,15 +63,13 @@ body {
     display: flex;
 }
 
+
 .checkbox {
     width: 21px;
     height: 21px;
     border: 1px solid rgba(153, 136, 153, 1);
     border-radius: 50%;
-    margin: 12px;
-}
 
-.checkbox {
     visibility: hidden;
     margin-right: 20px;
     margin-top: 0;
@@ -134,4 +131,3 @@ body {
     right: 6px;
     cursor: pointer;
 }
-//todo: align text
