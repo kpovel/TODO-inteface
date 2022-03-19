@@ -15,19 +15,22 @@ function addCloseElem() {
 addCloseElem()
 
 
-function checkStatusTask() {
+function changeStatusTask() {
     let task = document.querySelectorAll('.checkbox')
     for (let taskElement of task) {
         taskElement.addEventListener('click', function () {
-            if (this.checked){
+            if (this.checked) {
                 this.parentElement.style.background = '#F4F4F4'
-            }else if (!this.checked){
+                this.setAttribute('status', 'checked')
+            } else if (!this.checked) {
                 this.parentElement.style.background = '#fff'
+                this.setAttribute('status', 'noChecked')
             }
         })
     }
 }
-checkStatusTask()
+
+changeStatusTask()
 let value
 
 function addTask() {
@@ -56,7 +59,7 @@ function addTask() {
         inputLow.value = null
     }
     addCloseElem()
-    checkStatusTask()
+    changeStatusTask()
 }
 
 function addEnter(e) {

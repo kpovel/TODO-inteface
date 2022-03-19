@@ -72,28 +72,37 @@ body {
     margin: 12px;
 }
 
-//.checkbox {
-//    visibility: hidden;
-//    margin-right: 20px;
-//    margin-top: 0;
-//    position: relative;
-//    top: 12px;
-//    left: 12px;
-//}
-//
-//.checkbox::before {
-//    visibility: visible;
-//    content: "";
-//    display: inline-block;
-//    width: 21px;
-//    height: 21px;
-//    margin-right: 12px;
-//    margin-top: 1px;
-//    background-image: url("../svg/notChecked.svg");
-//    background-repeat: no-repeat;
-//    background-position: center center;
-//    cursor: pointer;
-//}
+.checkbox {
+    visibility: hidden;
+    margin-right: 20px;
+    margin-top: 0;
+    position: relative;
+    top: 12px;
+    left: 12px;
+
+    &::before {
+        visibility: visible;
+        content: "";
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        background-image: url("../svg/noChecked.svg");
+        margin-right: 12px;
+        margin-top: 1px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: pointer;
+
+    }
+
+    &[status="noChecked"]::before{
+        background-image: url("../svg/noChecked.svg");
+    }
+    &[status="checked"]::before{
+        background-image: url("../svg/checked.svg");
+    }
+}
+
 
 .task-name {
     font-family: Roboto, sans-serif;
@@ -125,3 +134,4 @@ body {
     right: 6px;
     cursor: pointer;
 }
+//todo: align text
