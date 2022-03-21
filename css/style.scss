@@ -60,6 +60,7 @@ body {
     border-radius: 6px;
     border: 1px solid #989898;
     display: flex;
+    justify-content: space-between;
 }
 
 
@@ -68,11 +69,7 @@ body {
     height: 21px;
 
     visibility: hidden;
-    margin-right: 20px;
-    margin-top: 0;
-    position: relative;
-    top: 12px;
-    left: 12px;
+    margin: 12px;
 
     &::before {
         visibility: visible;
@@ -81,8 +78,6 @@ body {
         width: 21px;
         height: 21px;
         background-image: url("../svg/noChecked.svg");
-        margin-right: 12px;
-        margin-top: 1px;
         background-repeat: no-repeat;
         background-position: center center;
         cursor: pointer;
@@ -103,24 +98,23 @@ body {
     width: 370px;
     display: flex;
     align-items: center;
-    margin: 7px 0 7px;
+    margin: 12px 0 12px;
 }
 
 
 .close-icon {
     background-image: url("../svg/close-icon.svg");
-    background-size: 15px 15px;
+    background-size: 15px;
     width: 15px;
+    height: 15px;
     background-repeat: no-repeat;
-    position: relative;
-    right: -17px;
-    top: 14px;
+    margin: 14px;
     cursor: pointer;
 }
 
 .add-icon {
     background-image: url("../svg/add-icon.svg");
-    background-size: 17px 17px;
+    background-size: 17px;
     height: 17px;
     width: 17px;
     position: relative;
