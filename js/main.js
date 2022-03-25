@@ -1,5 +1,5 @@
 import {addHighTask, addedHighTask, inputHigh, addLowTask, addedLowTask, inputLow, templateElement} from "./view.js";
-import {deleteTask} from "./view.js";
+import {deleteTask, checkTask} from "./view.js";
 
 addHighTask.addEventListener('click', addTaskOnButton)
 addLowTask.addEventListener('click', addTaskOnButton)
@@ -7,6 +7,7 @@ inputHigh.addEventListener('keydown', addTaskOnEnter)
 inputLow.addEventListener('keydown', addTaskOnEnter)
 
 let priority
+
 function addTaskOnButton() {
     priority = this.parentElement.parentElement.id
     addTask()
@@ -21,20 +22,35 @@ function addTaskOnEnter(e) {
 
 
 function addTask() {
+    const clone = templateElement.content.cloneNode(true)
     if (priority === 'high') {
         let task = inputHigh.value
-        if (!task.trim()) return
 
-        let clone = templateElement.content.cloneNode(true)
+        try {
+            if (!task.trim()) {
+                throw new Error('no task name')
+            }
+        } catch (e) {
+            console.error(e.message)
+            return
+        }
+
         clone.querySelector('.task-name').textContent = task
 
         addedHighTask.prepend(clone)
         inputHigh.value = null
     } else if (priority === 'low') {
         let task = inputLow.value
-        if (!task.trim()) return
 
-        let clone = templateElement.content.cloneNode(true)
+        try {
+            if (!task.trim()) {
+                throw new Error('no task name')
+            }
+        } catch (e) {
+            console.error(e.message)
+            return
+        }
+
         clone.querySelector('.task-name').textContent = task
 
         addedLowTask.prepend(clone)
@@ -50,6 +66,7 @@ function addCloseElem() {
         task.addEventListener('click', deleteTask)
     }
 }
+
 addCloseElem()
 
 
@@ -59,6 +76,7 @@ function changeStatusTask() {
         taskElement.addEventListener('click', changeLookTask)
     }
 }
+
 changeStatusTask()
 
 function changeLookTask() {

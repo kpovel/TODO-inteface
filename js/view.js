@@ -9,3 +9,13 @@ export const templateElement = document.getElementById('template')
 export function deleteTask() {
     this.parentNode.remove()
 }
+export function checkTask (){
+    try{
+        if(!task.trim()){
+            throw new Error('no task name')
+        }
+    }catch (e) {
+        console.log(e.message)
+        throw e
+    }
+}
