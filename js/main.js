@@ -1,10 +1,9 @@
-import {addHighTask, addedHighTask, inputHigh, addLowTask, addedLowTask, inputLow, templateElement} from "./view.js";
-import {deleteTask, checkTask} from "./view.js";
+import {UI_ELEMENT} from "./view.js";
 
-addHighTask.addEventListener('click', addTaskOnButton)
-addLowTask.addEventListener('click', addTaskOnButton)
-inputHigh.addEventListener('keydown', addTaskOnEnter)
-inputLow.addEventListener('keydown', addTaskOnEnter)
+UI_ELEMENT.addHighTask.addEventListener('click', addTaskOnButton)
+UI_ELEMENT.addLowTask.addEventListener('click', addTaskOnButton)
+UI_ELEMENT.inputHigh.addEventListener('keydown', addTaskOnEnter)
+UI_ELEMENT.inputLow.addEventListener('keydown', addTaskOnEnter)
 
 let priority
 
@@ -22,9 +21,9 @@ function addTaskOnEnter(e) {
 
 
 function addTask() {
-    const clone = templateElement.content.cloneNode(true)
+    const clone = UI_ELEMENT.templateElement.content.cloneNode(true)
     if (priority === 'high') {
-        let task = inputHigh.value
+        let task = UI_ELEMENT.inputHigh.value
 
         try {
             if (!task.trim()) {
@@ -37,10 +36,10 @@ function addTask() {
 
         clone.querySelector('.task-name').textContent = task
 
-        addedHighTask.prepend(clone)
-        inputHigh.value = null
+        UI_ELEMENT.addedHighTask.prepend(clone)
+        UI_ELEMENT.inputHigh.value = null
     } else if (priority === 'low') {
-        let task = inputLow.value
+        let task = UI_ELEMENT.inputLow.value
 
         try {
             if (!task.trim()) {
@@ -53,8 +52,8 @@ function addTask() {
 
         clone.querySelector('.task-name').textContent = task
 
-        addedLowTask.prepend(clone)
-        inputLow.value = null
+        UI_ELEMENT.addedLowTask.prepend(clone)
+        UI_ELEMENT.inputLow.value = null
     }
     addCloseElem()
     changeStatusTask()
@@ -63,7 +62,9 @@ function addTask() {
 function addCloseElem() {
     let tasksToDelete = document.querySelectorAll('.close-icon')
     for (let task of tasksToDelete) {
-        task.addEventListener('click', deleteTask)
+        task.addEventListener('click', function () {
+            this.parentNode.remove()
+        })
     }
 }
 
