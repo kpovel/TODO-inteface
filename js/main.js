@@ -1,21 +1,29 @@
-import {UI_ELEMENT, changeStatusTask} from "./view.js";
+import {changeStatusTask, UI_ELEMENT} from "./view.js";
 
 UI_ELEMENT.addHighTask.addEventListener('click', addTaskOnButton);
 UI_ELEMENT.addLowTask.addEventListener('click', addTaskOnButton);
 UI_ELEMENT.inputHigh.addEventListener('keydown', addTaskOnEnter);
 UI_ELEMENT.inputLow.addEventListener('keydown', addTaskOnEnter);
 
+function ConstructorTask(priority) {
+    this.priority = priority;
+}
+
 
 function addTaskOnButton() {
     const priority = this.parentElement.parentElement.id;
-    addTask(priority);
+    const task = new ConstructorTask(priority);
+    
+    addTask(task.priority);
 }
 
 function addTaskOnEnter(e) {
     if (e.code !== 'Enter') return;
 
     const priority = this.parentElement.parentElement.id;
-    addTask(priority);
+    const task = new ConstructorTask(priority);
+
+    addTask(task.priority);
 }
 
 
